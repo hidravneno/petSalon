@@ -1,11 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/mystyle.css" />
+    <title>Register</title>
+  </head>
+  <body>
+    <header class="header-register">
+      <img src="images/descarga.png" alt="Logo" class="logo" />
+      <h1>Register Your Pet</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="register.html">Register</a>
+      </nav>
+    </header>
+    <main>
+      <form id="petForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <br />
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required />
+        <br />
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <br />
+        <label for="type">Type:</label>
+        <select id="type" name="type" required>
+          <option value="dog">Dog</option>
+          <option value="cat">Cat</option>
+          <option value="bird">Bird</option>
+        </select>
+        <br />
+        <label for="service">Service:</label>
+        <input type="text" id="service" name="service" required />
+        <br />
+        <label for="breed">Breed:</label>
+        <input type="text" id="breed" name="breed" required />
+        <br />
+        <button type="submit">Register Pet</button>
+      </form>
+      <section id="petCount">
+        <h2>Total Pets Registered: <span id="totalPets">0</span></h2>
+        <div id="petTypes">
+          <div class="pet-type">
+            <img src="images/dog.png" alt="Dog" />
+            <span id="dogCount">0</span>
+          </div>
+          <div class="pet-type">
+            <img src="images/cat.png" alt="Cat" />
+            <span id="catCount">0</span>
+          </div>
+          <div class="pet-type">
+            <img src="images/bird.png" alt="Bird" />
+            <span id="birdCount">0</span>
+          </div>
+        </div>
+      </section>
+      <section id="petCards">
+        <h2>Registered Pets:</h2>
+        <div id="petList"></div>
+      </section>
+    </main>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <form id="editForm">
+          <label for="editName">Name:</label>
+          <input type="text" id="editName" name="editName" required />
+          <br />
+          <label for="editAge">Age:</label>
+          <input type="number" id="editAge" name="editAge" required />
+          <br />
+          <label for="editGender">Gender:</label>
+          <select id="editGender" name="editGender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          <br />
+          <label for="editType">Type:</label>
+          <select id="editType" name="editType" required>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="bird">Bird</option>
+          </select>
+          <br />
+          <label for="editService">Service:</label>
+          <input type="text" id="editService" name="editService" required />
+          <br />
+          <label for="editBreed">Breed:</label>
+          <input type="text" id="editBreed" name="editBreed" required />
+          <br />
+          <button type="submit">Save Changes</button>
+        </form>
+      </div>
+    </div>
     <script src="scripts/register.js"></script>
-</body>
+  </body>
 </html>
