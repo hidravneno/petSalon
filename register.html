@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="styles/mystyle.css" />
     <title>Register</title>
   </head>
-  <body>
+  <body class="register-page">
     <header class="header-register">
       <img src="images/descarga.png" alt="Logo" class="logo" />
       <h1>Register Your Pet</h1>
@@ -17,6 +17,7 @@
       </nav>
     </header>
     <main>
+      <!-- Form to register a new pet -->
       <form id="petForm">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required />
@@ -38,13 +39,20 @@
         </select>
         <br />
         <label for="service">Service:</label>
-        <input type="text" id="service" name="service" required />
+        <select id="service" name="service" required>
+          <option value="" disabled selected>Select a service</option>
+          <option value="Nails">Nails</option>
+          <option value="Grooming">Grooming</option>
+          <option value="Vaccination">Vaccination</option>
+        </select>
         <br />
         <label for="breed">Breed:</label>
         <input type="text" id="breed" name="breed" required />
         <br />
         <button type="submit">Register Pet</button>
       </form>
+
+      <!-- Section to display the total number of pets registered -->
       <section id="petCount">
         <h2>Total Pets Registered: <span id="totalPets">0</span></h2>
         <div id="petTypes">
@@ -62,11 +70,15 @@
           </div>
         </div>
       </section>
+
+      <!-- Section to display the list of registered pets -->
       <section id="petCards">
         <h2>Registered Pets:</h2>
         <div id="petList"></div>
       </section>
     </main>
+
+    <!-- Modal for editing pet details -->
     <div id="modal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
@@ -91,7 +103,12 @@
           </select>
           <br />
           <label for="editService">Service:</label>
-          <input type="text" id="editService" name="editService" required />
+          <select id="editService" name="editService" required>
+            <option value="" disabled selected>Select a service</option>
+            <option value="Nails">Nails</option>
+            <option value="Grooming">Grooming</option>
+            <option value="Vaccination">Vaccination</option>
+          </select>
           <br />
           <label for="editBreed">Breed:</label>
           <input type="text" id="editBreed" name="editBreed" required />

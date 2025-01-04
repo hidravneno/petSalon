@@ -1,3 +1,4 @@
+/* Estilos generales para el cuerpo del documento */
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f8ff;
@@ -6,34 +7,41 @@ body {
   padding: 0;
 }
 
+/* Estilos generales para el encabezado */
 header {
-  background-color: #1ddbc2;
+  background-color: #06544f;
   color: white;
   text-align: center;
   padding: 1em 0;
 }
 
-header.header-register {
-  background-image: url("../images/header-background1.png");
+/* Estilos específicos para los encabezados de las páginas de registro e índice */
+header.header-register,
+header.header-index {
   background-size: cover;
   background-position: 30% 45%;
   background-repeat: no-repeat;
   color: white;
   padding: 2em 0;
 }
-header.header-register .logo {
+
+/* Estilos para el logo en el encabezado */
+header .logo {
   position: absolute;
-  left: 50px; 
-  top: 20px; 
-  width: 100px; 
+  left: 50px;
+  top: 20px;
+  width: 100px;
   height: auto;
 }
+
+/* Estilos para los enlaces de navegación */
 nav a {
   margin: 0 15px;
   color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
+/* Estilos generales para el contenido principal */
 main {
   padding: 1em;
   display: flex;
@@ -41,6 +49,7 @@ main {
   align-items: center;
 }
 
+/* Estilos para el formulario de registro */
 form {
   background-color: white;
   border: 1px solid #ccc;
@@ -77,6 +86,7 @@ form button:hover {
   background-color: #9aecf4;
 }
 
+/* Estilos para la lista de mascotas */
 #petList {
   display: flex;
   flex-wrap: wrap;
@@ -84,6 +94,7 @@ form button:hover {
   margin-top: 20px;
 }
 
+/* Estilos para las tarjetas de mascotas */
 .pet-card {
   background-color: white;
   border: 1px solid #ccc;
@@ -127,7 +138,7 @@ form button:hover {
   background-color: #e53935;
 }
 
-/* styles window edit */
+/* Estilos para la ventana modal */
 .modal {
   display: none;
   position: fixed;
@@ -166,13 +177,14 @@ form button:hover {
   cursor: pointer;
 }
 
-/*style conteiner pets */
+/* Estilos para el contenedor de tipos de mascotas */
 #petTypes {
   display: flex;
   justify-content: space-around;
   margin-top: 30px;
 }
 
+/* Estilos para cada tipo de mascota */
 .pet-type {
   text-align: center;
 }

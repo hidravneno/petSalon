@@ -2,21 +2,12 @@ document.addEventListener("DOMContentLoaded", function () {
   let pets = JSON.parse(localStorage.getItem("pets")) || [];
   let currentEditIndex = null;
 
-  let petSalon = {
-    name: "The Fashion Pet",
-    address: {
-      street: "Palm Ave",
-      zip: "22333",
-    },
-    phone: "666-555-7777",
-  };
-
-  console.log(petSalon);
-
+  // Función para guardar las mascotas en el localStorage
   function savePetsToLocalStorage() {
     localStorage.setItem("pets", JSON.stringify(pets));
   }
 
+  // Función para mostrar el total de mascotas
   function displayTotalPets() {
     let totalPets = pets.length;
     let totalPetsElement = document.getElementById("totalPets");
@@ -33,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("birdCount").innerText = birdCount;
   }
 
+  // Función para mostrar las tarjetas de mascotas
   function displayPetCards() {
     let petList = document.getElementById("petList");
     if (petList) {
@@ -66,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Función para abrir el modal de edición
   function openEditModal(event) {
     currentEditIndex = event.target.getAttribute("data-index");
     let pet = pets[currentEditIndex];
@@ -80,10 +73,12 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("modal").style.display = "flex";
   }
 
+  // Función para cerrar el modal
   function closeModal() {
     document.getElementById("modal").style.display = "none";
   }
 
+  // Evento para el formulario de edición
   document
     .getElementById("editForm")
     .addEventListener("submit", function (event) {
@@ -108,27 +103,18 @@ document.addEventListener("DOMContentLoaded", function () {
       savePetsToLocalStorage();
       displayTotalPets();
       displayPetCards();
-      calculateAverageAge();
       closeModal();
     });
 
+  // Función para eliminar una mascota
   function deletePet(index) {
     pets.splice(index, 1);
     savePetsToLocalStorage();
     displayTotalPets();
     displayPetCards();
-    calculateAverageAge();
   }
 
-  function calculateAverageAge() {
-    let totalAge = 0;
-    for (let i = 0; i < pets.length; i++) {
-      totalAge += pets[i].age;
-    }
-    let averageAge = totalAge / pets.length;
-    console.log("Average Age of Pets:", averageAge);
-  }
-
+  // Evento para el formulario de registro
   let petForm = document.getElementById("petForm");
   if (petForm) {
     petForm.addEventListener("submit", function (event) {
@@ -154,15 +140,15 @@ document.addEventListener("DOMContentLoaded", function () {
       savePetsToLocalStorage();
       displayTotalPets();
       displayPetCards();
-      calculateAverageAge();
       petForm.reset();
     });
   }
 
+  // Inicializar la visualización de mascotas
   displayTotalPets();
   displayPetCards();
-  calculateAverageAge();
 
+  // Eventos para cerrar el modal
   document.querySelector(".close").addEventListener("click", closeModal);
 
   window.addEventListener("click", function (event) {
