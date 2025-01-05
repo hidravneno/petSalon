@@ -2,9 +2,17 @@ document.addEventListener("DOMContentLoaded", function () {
   let pets = JSON.parse(localStorage.getItem("pets")) || [];
   let currentEditIndex = null;
 
+  // Colores posibles para las tarjetas
+  const cardColors = ["#90cbdf", "#69e198", "#faf85c"];
+
   // Función para guardar las mascotas en el localStorage
   function savePetsToLocalStorage() {
     localStorage.setItem("pets", JSON.stringify(pets));
+  }
+
+  // Función para generar un nuevo ID
+  function generateNewId() {
+    return pets.length > 0 ? pets[pets.length - 1].id + 1 : 1;
   }
 
   // Función para mostrar el total de mascotas
@@ -32,8 +40,11 @@ document.addEventListener("DOMContentLoaded", function () {
       for (let i = 0; i < pets.length; i++) {
         let petCard = document.createElement("div");
         petCard.className = "pet-card";
+        // Asignar un color aleatorio a la tarjeta
+        let randomColor = cardColors[Math.floor(Math.random() * cardColors.length)];
+        petCard.style.backgroundColor = randomColor;
         petCard.innerHTML = `
-          <h3>${pets[i].name}</h3>
+          <h3>${pets[i].name} (ID: ${pets[i].id})</h3>
           <p>Age: ${pets[i].age}</p>
           <p>Gender: ${pets[i].gender}</p>
           <p>Type: ${pets[i].type}</p>
@@ -92,6 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let breed = document.getElementById("editBreed").value;
 
       pets[currentEditIndex] = {
+        id: pets[currentEditIndex].id,
         name: name,
         age: age,
         gender: gender,
@@ -128,6 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let breed = document.getElementById("breed").value;
 
       let newPet = {
+        id: generateNewId(),
         name: name,
         age: age,
         gender: gender,
