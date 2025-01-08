@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Services</title>
     <link rel="stylesheet" href="styles/mystyle.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
   </head>
   <body>
     <header class="header-services">
@@ -18,6 +19,9 @@
     <main>
       <!-- Formulario para registrar servicios -->
       <form id="serviceForm">
+        <label for="service">Service:</label>
+        <input type="text" id="service" name="service" required />
+        <br />
         <label for="description">Description:</label>
         <input type="text" id="description" name="description" required />
         <br />
@@ -27,10 +31,28 @@
         <button type="submit">Register Service</button>
       </form>
       <div id="notification"></div>
+
+      <!-- Sección para mostrar los servicios registrados -->
+      <section id="serviceList">
+        <h2>Registered Services:</h2>
+        <table id="servicesTable" class="table table-striped">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </section>
     </main>
 
     <!-- Incluyendo jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts/storeManager.js"></script>
     <!-- Archivo JS externo -->
     <script src="scripts/services.js"></script>
   </body>
