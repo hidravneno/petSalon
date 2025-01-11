@@ -10,9 +10,45 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("pets", JSON.stringify(pets));
   }
 
-  // Función para generar un nuevo ID
-  function generateNewId() {
-    return pets.length > 0 ? pets[pets.length - 1].id + 1 : 1;
+  // Función para leer servicios desde localStorage
+  function read() {
+    let data = localStorage.getItem("services");
+    if (!data) {
+      return [];
+    }
+    try {
+      return JSON.parse(data);
+    } catch (e) {
+      console.error("Error parsing services data:", e);
+      return [];
+    }
+  }
+
+  // Función para obtener servicios y agregarlos al dropdown
+  function getServices() {
+    console.log("getServices function");
+
+    let services = read();
+    let option = "";
+
+    for (let i = 0; i < services.length; i++) {
+      let service = services[i];
+      option += `<option value="${service.service}">${service.service} - $ ${service.price}</option>`;
+    }
+
+    $("#service").append(option);
+  }
+
+  // Función para obtener el siguiente ID secuencial
+  function getNextId() {
+    let currentId = localStorage.getItem("currentId");
+    if (!currentId) {
+      currentId = 1;  // Si no hay ningún ID, empieza desde 1
+    } else {
+      currentId = parseInt(currentId) + 1;  // Incrementa el ID
+    }
+    localStorage.setItem("currentId", currentId);  // Guarda el nuevo ID en el localStorage
+    return currentId;
   }
 
   // Función para mostrar el total de mascotas
@@ -40,10 +76,9 @@ document.addEventListener("DOMContentLoaded", function () {
       for (let i = 0; i < pets.length; i++) {
         let petCard = document.createElement("div");
         petCard.className = "pet-card";
-        // Asignar un color aleatorio a la tarjeta
         let randomColor = cardColors[Math.floor(Math.random() * cardColors.length)];
         petCard.style.backgroundColor = randomColor;
-        petCard.innerHTML = `
+        petCard.innerHTML = ` 
           <h3>${pets[i].name} (ID: ${pets[i].id})</h3>
           <p>Age: ${pets[i].age}</p>
           <p>Gender: ${pets[i].gender}</p>
@@ -102,6 +137,11 @@ document.addEventListener("DOMContentLoaded", function () {
       let service = document.getElementById("editService").value;
       let breed = document.getElementById("editBreed").value;
 
+      if (!name || !age || !gender || !type || !service || !breed) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
       pets[currentEditIndex] = {
         id: pets[currentEditIndex].id,
         name: name,
@@ -120,10 +160,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Función para eliminar una mascota
   function deletePet(index) {
-    pets.splice(index, 1);
-    savePetsToLocalStorage();
-    displayTotalPets();
-    displayPetCards();
+    if (confirm("Are you sure you want to delete this pet?")) {
+      pets.splice(index, 1);
+      savePetsToLocalStorage();
+      displayTotalPets();
+      displayPetCards();
+    }
   }
 
   // Evento para el formulario de registro
@@ -139,8 +181,13 @@ document.addEventListener("DOMContentLoaded", function () {
       let service = document.getElementById("service").value;
       let breed = document.getElementById("breed").value;
 
+      if (!name || !age || !gender || !type || !service || !breed) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
       let newPet = {
-        id: generateNewId(),
+        id: getNextId(),  // Usar el ID secuencial
         name: name,
         age: age,
         gender: gender,
@@ -157,7 +204,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Inicializar la visualización de mascotas
+  // Inicializar la visualización de servicios y mascotas
+  getServices(); // Cargar los servicios al dropdown
   displayTotalPets();
   displayPetCards();
 

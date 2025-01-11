@@ -1,23 +1,237 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/mystyle.css" />
-    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Veterinary Clinic - Home</title>
   </head>
   <body>
     <header class="header-index">
-      <img src="images/descarga.png" alt="Logo" class="logo" />
-    </header>
-    <header>
-      <h1>The Fashion pet</h1>
+      <!-- Logo and Home link -->
+      <a href="index.html">
+        <img src="images/logo.png" alt="Veterinary Clinic Logo" class="logo" />
+      </a>
+      <!-- Title -->
+      <h1>The Fashion Pet Veterinary Clinic</h1>
+      <!-- Navigation -->
       <nav>
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
+        <a href="location.html">Location</a>
         <a href="register.html">Register</a>
       </nav>
     </header>
+
+    <main>
+      <!-- Main image (featured or background) -->
+      <section class="hero-image">
+        <img src="images/dogs.jpg" alt="Veterinary Clinic" class="img-fluid" />
+      </section>
+
+      <!-- About the veterinary clinic -->
+      <section class="info">
+        <h2>Welcome to Our Veterinary Clinic</h2>
+        <p>
+          We specialize in the care of your pets, providing top-quality
+          services.
+        </p>
+      </section>
+
+      <!-- Cards section -->
+      <section class="cards-section my-5 container">
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="col-md-4">
+            <div class="card h-100 text-center">
+              <div class="card-body">
+                <i class="fas fa-clock fa-3x text-primary"></i>
+                <h5 class="card-title mt-3">Opening Hours</h5>
+                <p class="card-text">
+                  Your pet's health is the most important thing, that's why our
+                  NON-STOP Veterinary Medical Hospital is available 365 days a
+                  year, 24 hours a day.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-md-4">
+            <div class="card h-100 text-center">
+              <div class="card-body">
+                <i class="fas fa-hospital fa-3x text-success"></i>
+                <h5 class="card-title mt-3">Our Facility</h5>
+                <p class="card-text">
+                  Our team of general and specialist veterinarians is made up of
+                  graduates of the Faculty of Veterinary Medicine and Animal
+                  Husbandry from different universities in the country as well
+                  as abroad, forming a multidisciplinary team that allows them
+                  to develop their clinical skills on a daily basis.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-md-4">
+            <div class="card h-100 text-center">
+              <div class="card-body">
+                <i class="fas fa-user-md fa-3x text-danger"></i>
+                <h5 class="card-title mt-3">Expert Team</h5>
+                <p class="card-text">
+                  This veterinary clinic has stood out for maintaining constant
+                  innovation in its methods and equipment, which has allowed it
+                  to position itself as a benchmark in quality veterinary
+                  medicine in the region. With a team of highly trained
+                  professionals, they offer personalized and compassionate care
+                  to each of the pets that visit their modern facilities.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="hero">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <img src="images/docs.jpg" alt="docs Image" class="img-fluid" />
+            </div>
+            <div class="col-md-6">
+              <h2>OUR COMMITMENT</h2>
+              <h3>IS TO YOUR FAMILY</h3>
+              <p>
+                At PetSalon, we are dedicated to providing the timely medical
+                care and attention your pet needs.
+              </p>
+              <p>
+                Our medical team will care for each patient with
+                professionalism, affection, dedication, and quality, as if they
+                were part of our family.
+              </p>
+              <a href="location.html" class="btn btn-primary">Location</a>
+            </div>
+          </div>
+        </div>
+        <div class="stats-container">
+          <div class="stat-item">
+            <div class="stat-icon">🏪</div>
+            <div class="stat-value">1</div>
+            <div class="stat-label">Branches</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">🩺</div>
+            <div class="stat-value">23</div>
+            <div class="stat-label">Veterinarians</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">🐶</div>
+            <div class="stat-value">7,345</div>
+            <div class="stat-label">Licks</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">👕</div>
+            <div class="stat-value">96,000</div>
+            <div class="stat-label">Hairs on Clothes</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="row align-items-center mb-5">
+        <div class="col-md-4">
+          <div class="circular-image">
+            <img src="images/vacune.jpg" alt="Preventive Medicine">
+          </div>
+        </div>
+        <div class="col-md-8">
+          <h2>ALWAYS WATCHING OUT</h2>
+          <h1>PREVENTIVE MEDICINE</h1>
+          <p>
+            Our veterinary team knows that each pet, depending on its species
+            and breed, requires preventive care at each stage of its life.
+          </p>
+          <a href="register.html" class="btn btn-primary">LEARN MORE</a>
+        </div>
+      </div>
+      
+      <div class="row align-items-center mb-5">
+        <div class="col-md-8">
+          <h2>ALWAYS WATCHING OUT</h2>
+          <h1>PREVENTIVE MEDICINE</h1>
+          <p>Our veterinary team knows that each pet, depending on its species and breed, requires preventive care at each stage of its life.</p>
+          <a href="register.html" class="btn btn-primary">LEARN MORE</a>
+        </div>
+        <div class="col-md-4">
+          <div class="circular-image">
+            <img src="images/medicina.jpg" alt="Preventive Medicine">
+          </div>
+        </div>
+      </div>
+      
+      <div class="row align-items-center mb-5">
+        <div class="col-md-4">
+          <div class="circular-image">
+            <img src="images/laboratory.jpg" alt="Preventive Medicine">
+          </div>
+        </div>
+        <div class="col-md-8">
+          <h2>ALWAYS WATCHING OUT</h2>
+          <h1>PREVENTIVE MEDICINE</h1>
+          <p>
+            Our veterinary team knows that each pet, depending on its species
+            and breed, requires preventive care at each stage of its life.
+          </p>
+          <a href="register.html" class="btn btn-primary">LEARN MORE</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="custom-footer">
+      <div class="container">
+        <div class="row">
+          <!-- Section 1: General Information -->
+          <div class="col-md-4">
+            <img src="images/logo.png" alt="Logo" class="footer-logo" />
+            <p><strong>Business Hours:</strong></p>
+            <p>
+              1st Section #5, Del Granado 5, UrbiVilla Del Prado I, 22170
+              Tijuana, B.C.
+            </p>
+            <p>Gabilondo 9:00 am to 9:00 pm</p>
+          </div>
+
+          <!-- Section 2: Quick Shortcuts -->
+          <div class="col-md-4">
+            <h4>QUICK SHORTCUTS:</h4>
+            <ul class="footer-links">
+              <li><a href="#">About Us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="#">Tutor Support</a></li>
+              <li><a href="#">Price List</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Job Offers</a></li>
+            </ul>
+          </div>
+
+          <!-- Section 3: Location -->
+          <div class="col-md-4">
+            <h4>LOCATION:</h4>
+            <a href="location.html">
+              <img src="images/logo.png" alt="Location" class="location-img" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
-  <!--script src="scripts/register.js"></script1!-->
 </html>
